@@ -1,4 +1,4 @@
-NetflixGPT
+**NetflixGPT🚀🚀**
 
 
 Header (logo on the right)
