@@ -1,13 +1,16 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { auth } from "./firebase";
 
-function firebaseSignInValidation({setErrorMessage},email,password) {
+function firebaseSignInValidation({setErrorMessage,navigate},email,password) {
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       console.log(user);
-      // ...
+      
+      navigate('/browse')
     })
     .catch((error) => {
       const errorCode = error.code;

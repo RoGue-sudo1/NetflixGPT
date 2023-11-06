@@ -3,16 +3,20 @@ import { checkValidationData } from "../utils/validate";
 import Header from "./Header";
 import firebaseSignInValidation from "../utils/firebaseSignInValidation";
 import firebaseSignUp from "../utils/firebaseSignUp";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const navigate = useNavigate();
+
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleSubmitButtonClicked = (e) => {
-    e.preventDefault();
+
     const message = checkValidationData(
       email.current.value,
       password.current.value
@@ -26,13 +30,13 @@ function Login() {
     if (!isSignInForm) {
       //Signup logic
       firebaseSignUp(
-        { setErrorMessage },
+        { setErrorMessage, navigate, setisSignInForm },
         email.current.value,
         password.current.value
       );
     } else {
       firebaseSignInValidation(
-        { setErrorMessage },
+        { setErrorMessage, navigate },
         email.current.value,
         password.current.value
       );
@@ -51,12 +55,15 @@ function Login() {
           alt="bg_image"
         />
       </div>
-      <form className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 ">
+      <form className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
+        onSubmit={(e)=>{e.preventDefault()}}
+      >
         <h1 className="font-bold text-3xl text-white my-5 ">
           {isSignInForm ? "Sign In" : "Sign up"}
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-2 my-2 bg-gray-800 w-full rounded-lg text-white"
