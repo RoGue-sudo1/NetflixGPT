@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { checkValidationData } from "../utils/validate";
 import Header from "./Header";
+import firebaseSignInValidation from "../utils/firebaseSignInValidation";
+import firebaseSignUp from "../utils/firebaseSignUp";
 
 function Login() {
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
@@ -11,11 +13,34 @@ function Login() {
 
   const handleSubmitButtonClicked = (e) => {
     e.preventDefault();
-    setErrorMessage(checkValidationData(email.current.value, password.current.value));
+    const message = checkValidationData(
+      email.current.value,
+      password.current.value
+    );
+    setErrorMessage(message);
+
+    if (message !== null) return;
+
+    //Sign & Signup logic
+
+    if (!isSignInForm) {
+      //Signup logic
+      firebaseSignUp(
+        { setErrorMessage },
+        email.current.value,
+        password.current.value
+      );
+    } else {
+      firebaseSignInValidation(
+        { setErrorMessage },
+        email.current.value,
+        password.current.value
+      );
+    }
   };
 
   const handleSignInToggle = () => {
-    setIsSignIn(!isSignIn);
+    setisSignInForm(!isSignInForm);
   };
   return (
     <div>
@@ -28,9 +53,9 @@ function Login() {
       </div>
       <form className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 ">
         <h1 className="font-bold text-3xl text-white my-5 ">
-          {isSignIn ? "Sign In" : "Sign up"}
+          {isSignInForm ? "Sign In" : "Sign up"}
         </h1>
-        {!isSignIn && (
+        {!isSignInForm && (
           <input
             type="text"
             placeholder="Full Name"
@@ -54,16 +79,16 @@ function Login() {
           className="p-2 my-4 rounded-lg font-bold text-white text-lg bg-red-600 w-full cursor-pointer"
           onClick={handleSubmitButtonClicked}
         >
-          {isSignIn ? "Sign In" : "Sign Up"}
+          {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <span className="text-gray-400">
-          {isSignIn ? "New to Netflix?" : "Already a user?"}
+          {isSignInForm ? "New to Netflix?" : "Already a user?"}
         </span>
         <span
           className="text-white cursor-pointer "
           onClick={handleSignInToggle}
         >
-          {isSignIn ? " Sign up now" : "Sign in now"}
+          {isSignInForm ? " Sign up now" : "Sign in now"}
         </span>
       </form>
     </div>
