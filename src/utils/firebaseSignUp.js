@@ -4,7 +4,7 @@ import { addUser } from "./userSlice";
 
 
 function firebaseSignUp  (
-    { setErrorMessage, navigate,dispatch },
+    { setErrorMessage,dispatch },
     name, 
     email,
     password
@@ -13,9 +13,6 @@ function firebaseSignUp  (
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-       
-
-        console.log(user);
   
         updateProfile(auth.currentUser, {
           displayName: name
@@ -24,7 +21,7 @@ function firebaseSignUp  (
           .then(() => {
             const { uid, displayName, email } = auth.currentUser;
             dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
-            navigate("/browse");
+           
             
           })
           .catch((error) => {

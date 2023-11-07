@@ -3,24 +3,20 @@ import { checkValidationData } from "../utils/validate";
 import Header from "./Header";
 import firebaseSignInValidation from "../utils/firebaseSignInValidation";
 import firebaseSignUp from "../utils/firebaseSignUp";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { loginBgImg } from "../utils/constants";
 
 function Login() {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const dispatch = useDispatch()
-
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
-
   const handleSubmitButtonClicked = (e) => {
-
     const message = checkValidationData(
       email.current.value,
       password.current.value
@@ -34,14 +30,14 @@ function Login() {
     if (!isSignInForm) {
       //Signup logic
       firebaseSignUp(
-        { setErrorMessage, navigate, setisSignInForm,dispatch },
+        { setErrorMessage, setisSignInForm, dispatch },
         name.current.value,
         email.current.value,
         password.current.value
       );
     } else {
       firebaseSignInValidation(
-        { setErrorMessage, navigate },
+        { setErrorMessage },
         email.current.value,
         password.current.value
       );
@@ -56,12 +52,15 @@ function Login() {
       <Header />
       <div className="absolute  ">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="bg_image"
+          src={loginBgImg}
         />
       </div>
-      <form className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
-        onSubmit={(e)=>{e.preventDefault()}}
+      <form
+        className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
       >
         <h1 className="font-bold text-3xl text-white my-5 ">
           {isSignInForm ? "Sign In" : "Sign up"}
