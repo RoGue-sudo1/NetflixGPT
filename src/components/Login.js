@@ -4,16 +4,20 @@ import Header from "./Header";
 import firebaseSignInValidation from "../utils/firebaseSignInValidation";
 import firebaseSignUp from "../utils/firebaseSignUp";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function Login() {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+
 
   const handleSubmitButtonClicked = (e) => {
 
@@ -30,7 +34,8 @@ function Login() {
     if (!isSignInForm) {
       //Signup logic
       firebaseSignUp(
-        { setErrorMessage, navigate, setisSignInForm },
+        { setErrorMessage, navigate, setisSignInForm,dispatch },
+        name.current.value,
         email.current.value,
         password.current.value
       );

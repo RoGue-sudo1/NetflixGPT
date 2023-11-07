@@ -1,8 +1,11 @@
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { addUser } from "./userSlice";
+
 
 function firebaseSignUp  (
-    { setErrorMessage, navigate, setisSignInForm },
+    { setErrorMessage, navigate,dispatch },
+    name, 
     email,
     password
   ){
@@ -10,22 +13,24 @@ function firebaseSignUp  (
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+       
+
         console.log(user);
   
-        // updateProfile(user, {
-        //   displayName: "Jane Q. User",
-        //   photoURL: "https://example.com/jane-q-user/profile.jpg",
-        // })
-        //   .then(() => {
-        //     // Profile updated!
-        //     // ...
-        //   })
-        //   .catch((error) => {
-        //     // An error occurred
-        //     // ...
-        //   });
-        setisSignInForm(true);
-        navigate("/browse");
+        updateProfile(auth.currentUser, {
+          displayName: name
+         
+        })
+          .then(() => {
+            const { uid, displayName, email } = auth.currentUser;
+            dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
+            navigate("/browse");
+            
+          })
+          .catch((error) => {
+            setErrorMessage(`Profile updation - ${error.code + error.message}`)
+          });
+        
       })
       .catch((error) => {
         const errorCode = error.code;
