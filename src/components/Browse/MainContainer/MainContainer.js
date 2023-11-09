@@ -7,7 +7,9 @@ function MainContainer() {
 
   if(!movies) return
 
-  const mainMovie = movies[0];
+  const random = Math.floor(Math.random() * 13);
+
+  const mainMovie = movies[random];
   const { original_title, overview, id} = mainMovie;
 
   return <div>
