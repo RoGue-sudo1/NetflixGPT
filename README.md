@@ -54,6 +54,14 @@ Body
           
           - We will fetch trailer video and dispatch it to store
 
+   },
+   {
+      **Secondary Container**
+      {- Movies List - Popular
+         - Movies card * n
+      - Movies List - Comedy
+         -Movies card * n} * n
+      
    }
 
 **React.StrictMode**

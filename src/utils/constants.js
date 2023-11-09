@@ -21,3 +21,6 @@ export const MOVIES_API =
 
 export const MOVIES_TRAILER_API =
 "https://api.themoviedb.org/3/movie/"
+
+export const BACKDROP_CDN = 
+"https://image.tmdb.org/t/p/w300"

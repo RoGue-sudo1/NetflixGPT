@@ -1,7 +1,7 @@
 
 function VideoTitle({title,overview}) {
   return (
-    <div className=" w-screen aspect-video absolute text-white pt-[15%] pl-12 bg-gradient-to-r from-black overflow-hidden">
+    <div className=" w-screen aspect-video absolute text-white pt-[13%] pl-12 bg-gradient-to-r from-black  ">
       <h1 className="font-bold text-6xl ">{title}</h1>
       <p className="py-6 w-1/4 text-lg">{overview}</p>
       <div>
