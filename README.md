@@ -22,6 +22,7 @@ Body
     - So we will unsubscribe by this onAuthChanged returns a unsbsribe function so we have to only call it .
 
 
+
  }
  -  Browse page ( if authenticated user)
        - Header with logo at right and at left home, browse,signout, user logo
@@ -29,3 +30,32 @@ Body
        - movie showcase in a horizontal way with their categories (like )
 
        - Moving forward to movies section we are using TMDB api for movies because it provides movies with proper documentation and as netflix api is private and TMDB has godd autheticationa nd doesnt change frequemtly.
+       
+       - Register a TMDD and create an app and create api token and api key.
+       - take the code of api fetching from there.
+
+
+- **Browse Page**
+   {
+      - Main Container
+          - Video Container
+              - Play Button - More Info Button
+      - Secondary Container
+          - moviesList * n (from useNowPlatyingMovies())
+          - categories of movies * n ("")
+   },
+   {
+      **VideoContainer**
+        - Video Title 
+           - This will contain video title,description and play and more info button movie list is fetched from tmdb api.
+
+        - Video Background
+          - This will conatin video in background which tmdb api of videos in which we can find the movie from key and then it will take us youtube video from there you can choose embeded code and integerate it with your code.
+          
+          - We will fetch trailer video and dispatch it to store
+
+   }
+
+**React.StrictMode**
+
+**Sometimes there are two api calls and something else is called twice sometime this is because of React.StrictMode by wrapping this over our app , by this react re renders some elements like api, actions twice or we can say that react re renders some elements two time to catch if any inconsitentency in our render cycle. This only happens in developer mode when we build it for production level React.StrictMode is not present.**
