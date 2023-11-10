@@ -6,6 +6,7 @@ import { addTrailerVideo } from "../utils/moviesSlice"
 
 function useMoviesTrailer(movieId) {
     const dispatch = useDispatch()
+   
 
     const getMoviesVideo = async ()=>{
         const data = await fetch(MOVIES_TRAILER_API+movieId+"/videos?language=en-US",API_OPTIONS )
