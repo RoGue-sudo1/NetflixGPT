@@ -64,6 +64,28 @@ Body
       
    }
 
+
+   **GPT INTEGERATION**
+   - We are going to use openAi's gpt's apis and we will integerate this on our browser page.
+   - We are going to make a different component for this and provide a link or abutton on our browse page to get connected with search powered by gpt's apis.
+
+
+   - Gpt component will have two things-
+   {
+      1. GPT Search bar
+      2. GPT Movies suggestions
+
+      **EXTRA FEATURE**
+       1. We will build here the language change options.
+          - This will show us how at idustry level things works.
+          - As we will see the texts written here(for eg button texts, placeholder texts and many more) are stored in constants.
+          - At last we will use redux store for storing the value of lang we have selected.
+   }
+
+
+**.env FIle**
+**now we make this file to store our crucial docs for eg. keys and by storing in this any interupter cant reach to it.**
+
 **React.StrictMode**
 
 **Sometimes there are two api calls and something else is called twice sometime this is because of React.StrictMode by wrapping this over our app , by this react re renders some elements like api, actions twice or we can say that react re renders some elements two time to catch if any inconsitentency in our render cycle. This only happens in developer mode when we build it for production level React.StrictMode is not present.**

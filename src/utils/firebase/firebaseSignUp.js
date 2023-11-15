@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { addUser } from "./userSlice";
+import { auth } from "./firebase";
+import { addUser } from "../store/slices/userSlice";
 
 
 function firebaseSignUp  (

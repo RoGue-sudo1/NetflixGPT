@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { checkValidationData } from "../utils/validate";
 import Header from "./Header";
-import firebaseSignInValidation from "../utils/firebaseSignInValidation";
-import firebaseSignUp from "../utils/firebaseSignUp";
+import firebaseSignInValidation from "../utils/firebase/firebaseSignInValidation";
+import firebaseSignUp from "../utils/firebase/firebaseSignUp";
 import { useDispatch } from "react-redux";
 import { loginBgImg } from "../utils/constants";
 
