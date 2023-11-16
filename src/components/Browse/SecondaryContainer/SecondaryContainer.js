@@ -12,7 +12,7 @@ function SecondaryContainer() {
   return (
     (nowPlayingMovies || popularMovies || topRatedMovies || upComingMovies) && (
       <div className="bg-black ">
-        <div className=" pt-3 md:-mt-64 relative z-20 pl-2 md:pl-10">
+        <div className=" pt-5 md:-mt-64 relative z-20 pl-2 md:pl-10">
           <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
           <MovieList title={"Top Rated"} movies={topRatedMovies} />
           <MovieList title={"Popular"} movies={popularMovies} />

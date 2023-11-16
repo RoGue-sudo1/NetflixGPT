@@ -4,7 +4,7 @@ import { API_OPTIONS, MOVIE_SEARCH_API } from "../../utils/constants";
 import lang from "../../utils/langConstants";
 import { addMovieSearchResult } from "../../utils/store/slices/moviesSlice";
 
-function GptSearchBar() {
+function SearchBar() {
   const langConfig = useSelector((store) => store.config.lang);
   const dispatch = useDispatch()
   const searchText = useRef(null)
@@ -56,4 +56,4 @@ function GptSearchBar() {
   );
 }
 
-export default GptSearchBar;
+export default SearchBar;

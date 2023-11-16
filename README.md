@@ -65,7 +65,7 @@ Body
    }
 
 
-   **GPT INTEGERATION**
+   **GPT INTEGERATION**(**OpenAi has done their apis paid so we have to remove this feature instead this we had integerated a normal movie search function.**)
    - We are going to use openAi's gpt's apis and we will integerate this on our browser page.
    - We are going to make a different component for this and provide a link or abutton on our browse page to get connected with search powered by gpt's apis.
 
@@ -81,6 +81,10 @@ Body
           - As we will see the texts written here(for eg button texts, placeholder texts and many more) are stored in constants.
           - At last we will use redux store for storing the value of lang we have selected.
    }
+
+   **Movie Search**
+   - In this we have made a search bar and when some input come into it it will fetch that movie information from tmdb api and provide the results
+
 
 
 **.env FIle**

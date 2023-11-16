@@ -21,14 +21,14 @@ function VideoTitle({ title, overview }) {
     <div className=" w-screen aspect-video scrollbar-hide absolute text-white pt-[13%] pl-8 md:pl-12 bg-gradient-to-r from-black  ">
       <h1 className="font-bold mt-12 md:mt-0 text-2xl md:text-6xl ">{title}</h1>
       {overview.length > limit && !readMore ? (
-        <p className="py-6 w-1/4 md:block hidden text-lg ">
+        <p className="py-6 w-1/4 hidden md:block text-lg ">
           {overview.slice(0, limit)}{" "}
           <button className="font-bold text-xl" onClick={handleReadMoreButton}>
             .....Read More
           </button>
         </p>
       ) : (
-        <p className="py-6 w-1/4 text-lg">{overview}
+        <p className="py-6 w-1/4 hidden md:block text-lg">{overview}
           <button className="font-bold text-xl" onClick={handleReadLessButton}>
             .....Read Less
           </button>

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { BACKDROP_CDN } from "../../utils/constants";
 
-function GptMovieSuggestions() {
+function MovieSuggestions() {
   const movieSearchResult = useSelector(
     (store) => store.movies.movieSearchResult
   );
@@ -36,4 +36,4 @@ function GptMovieSuggestions() {
   );
 }
 
-export default GptMovieSuggestions;
+export default MovieSuggestions;

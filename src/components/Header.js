@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { netflixLogo, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { auth } from "../utils/firebase/firebase";
 import { changeLanguage } from "../utils/store/slices/configSlice";
-import { toggleGptSearch } from "../utils/store/slices/gptSlice";
+import { toggleSearch } from "../utils/store/slices/searchSlice";
 import { removeMovieSearchResult } from "../utils/store/slices/moviesSlice";
 import { addUser, removeUser } from "../utils/store/slices/userSlice";
 import { CiMenuBurger } from "react-icons/ci";
@@ -14,7 +14,7 @@ import { IoClose } from "react-icons/io5";
 function Header() {
   const user = useSelector((store) => store.user);
   const [menu, setMenu] = useState(true);
-  const gptSearchShow = useSelector((store) => store.gpt.gptSearchShow);
+  const searchShow = useSelector((store) => store.search.searchShow);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -42,8 +42,8 @@ function Header() {
       });
   };
 
-  const handleGptSearchButton = () => {
-    dispatch(toggleGptSearch());
+  const handleSearchButton = () => {
+    dispatch(toggleSearch());
     dispatch(removeMovieSearchResult());
   };
 
@@ -74,7 +74,7 @@ function Header() {
               <div className="absolute right-3 p-2 rounded-lg z-20  bg-gray-800 ">
               <div className="">
                 <ul className="text-white  ">
-                  <li onClick={handleGptSearchButton} className="leading-9" >{gptSearchShow ? "Home" : "GPT Search"}</li>
+                  <li onClick={handleSearchButton} className="leading-9" >{searchShow ? "Home" : "Search"}</li>
                   <hr className="text-white "/>
                   <li onClick={handleSignOutButtonClicked} className="leading-9">Sign Out</li>
                 </ul>
@@ -84,7 +84,7 @@ function Header() {
             )}
           </div>
           <div className="max-sm:hidden">
-            {gptSearchShow && (
+            {searchShow && (
               <select
                 className="m-3 p-2 text-white bg-gray-800 rounded-lg"
                 onChange={handleLanguageChange}
@@ -98,9 +98,9 @@ function Header() {
             )}
             <button
               className="bg-purple-500 font-bold text-white p-3 mr-3 rounded-md"
-              onClick={handleGptSearchButton}
+              onClick={handleSearchButton}
             >
-              {gptSearchShow ? "Home" : "GPT Search"}
+              {searchShow ? "Home" : " Search"}
             </button>
             <button
               className="font-bold text-white bg-red-700 my-4 rounded-md p-3 "
