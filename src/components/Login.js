@@ -58,7 +58,7 @@ function Login() {
         />
       </div>
       <form
-        className="absolute p-6 md:p-12 bg-black w-[80%] mt-[60%] md:w-3/12 md:my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
+        className="absolute p-6 md:p-12 bg-black w-[90%] mt-[42%] md:w-3/12 md:my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
         onSubmit={(e) => {
           e.preventDefault();
         }}
