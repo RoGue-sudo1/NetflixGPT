@@ -5,7 +5,7 @@ function MovieList({ title, movies }) {
     movies && (
       <div className="p-6">
         <div>
-          <h1 className="text-2xl text-white px-6 py-2">{title}</h1>
+          <h1 className="text-2xl text-white px-2 md:px-6 pb-1 md:mt-0 -mt-10 md:py-2">{title}</h1>
           <div className="flex overflow-x-scroll scrollbar-hide">
             {movies.map((movie) => {
               return (

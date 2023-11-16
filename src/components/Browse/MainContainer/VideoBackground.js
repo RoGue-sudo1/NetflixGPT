@@ -17,16 +17,16 @@ function VideoBackground({ movieId }) {
   };
 
   return (
-    <div>
+    <div >
       <div  onClick={handleVolumeButton}>
         {mute ? (
-          <IoVolumeMuteOutline className="bg-white bg-opacity-30 p-2 absolute z-40 text-5xl mx-4 rounded-full right-0 top-3/4  " />
+          <IoVolumeMuteOutline className="bg-white bg-opacity-30 p-2 absolute z-40 text-3xl md:text-5xl mx-4 rounded-full right-0 top-36 md:top-3/4  " />
         ) : (
-          <IoVolumeMedium className="bg-white bg-opacity-30 p-2 absolute z-40 text-5xl mx-4 rounded-full right-0 top-3/4  " />
+          <IoVolumeMedium className="bg-white bg-opacity-30 p-2 absolute z-40 text-3xl md:text-5xl mx-4 rounded-full right-0 top-36  md:top-3/4  " />
         )}
       </div>
       <iframe
-        className="w-screen aspect-video scrollbar-hide  "
+        className="w-screen aspect-video  scrollbar-hide  "
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +

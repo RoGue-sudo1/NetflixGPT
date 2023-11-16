@@ -9,8 +9,8 @@ function GptMovieSuggestions() {
     movieSearchResult &&
     (movieSearchResult && movieSearchResult.backdrop_path ? (
       <div className="flex justify-center mt-10">
-        <div className="bg-gray-900 text-white w-[19%] p-1  rounded-lg flex justify-center ">
-          <div >
+        <div className="bg-gray-900 text-white md:w-[19%] w-[75%] p-1  rounded-lg flex justify-center ">
+          <div  >
             <img
               src={BACKDROP_CDN + movieSearchResult.backdrop_path}
               alt="backdrop_path"
@@ -19,9 +19,9 @@ function GptMovieSuggestions() {
             <h1 className="text-center font-bold text-2xl ">
               {movieSearchResult.title}
             </h1>
-            <p className="font-bold text-xl p-2">Overview:</p>
-            <p className="px-2  text-md">{movieSearchResult.overview}</p>
-            <p className="font-bold text-xl p-2">
+            <p className="font-bold text-xl max-md:hidden p-2">Overview:</p>
+            <p className="px-2  text-md max-md:hidden">{movieSearchResult.overview}</p>
+            <p className="font-bold text-xl text-center p-2">
               Average Rating: {movieSearchResult.vote_average}
             </p>
             <p className="px-2 text-md"></p>
@@ -29,7 +29,7 @@ function GptMovieSuggestions() {
         </div>
       </div>
     ) : (
-      <div className="flex justify-center">
+      <div className="flex flex-wrap align-middle pl-14 md:p-2 justify-center">
         <p className="font-bold text-white text-3xl mt-12">): Sorry the requested movie is not available.</p>
       </div>
     ))

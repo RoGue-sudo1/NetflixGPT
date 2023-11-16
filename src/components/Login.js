@@ -48,16 +48,17 @@ function Login() {
     setisSignInForm(!isSignInForm);
   };
   return (
-    <div>
+    <div >
       <Header />
       <div className="absolute  ">
         <img
           alt="bg_image"
           src={loginBgImg}
+          className="h-screen object-cover md:h-full "
         />
       </div>
       <form
-        className="absolute p-12 bg-black  w-3/12 my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
+        className="absolute p-6 md:p-12 bg-black w-[80%] mt-[60%] md:w-3/12 md:my-36 mx-auto left-0 right-0 rounded-md bg-opacity-80 "
         onSubmit={(e) => {
           e.preventDefault();
         }}
