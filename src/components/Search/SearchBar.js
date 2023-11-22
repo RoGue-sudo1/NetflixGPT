@@ -1,4 +1,4 @@
-import React, { useCallback,  useRef } from "react";
+import React, { useCallback,  useEffect,  useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS, MOVIE_SEARCH_API } from "../../utils/constants";
 import lang from "../../utils/langConstants";
@@ -25,6 +25,7 @@ function SearchBar() {
     //   })
 
     //   console.log(gptResults.choices)
+    
     searchMovie()
    
 
