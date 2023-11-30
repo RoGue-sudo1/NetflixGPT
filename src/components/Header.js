@@ -97,13 +97,13 @@ function Header() {
               </select>
             )}
             <button
-              className="bg-purple-500 font-bold text-white p-3 mr-3 rounded-md"
+              className="bg-red-700 font-bold text-white text-md p-3 mr-3 rounded-md"
               onClick={handleSearchButton}
             >
               {searchShow ? "Home" : " Search"}
             </button>
             <button
-              className="font-bold text-white bg-red-700 my-4 rounded-md p-3 "
+              className="font-bold text-white bg-red-700 text-md my-4 rounded-md p-3 "
               onClick={handleSignOutButtonClicked}
             >
               Sign Out
