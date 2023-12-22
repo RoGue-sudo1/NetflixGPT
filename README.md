@@ -1,5 +1,7 @@
 **NetflixGPT🚀🚀**
 
+**Preview Link** -: https://netflixclonegpt.netlify.app/
+
 
 Header (logo on the right)
 Body 
